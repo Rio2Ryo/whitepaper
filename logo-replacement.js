@@ -36,6 +36,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         iconContainer.style.backgroundRepeat = 'no-repeat';
                         iconContainer.style.backgroundPosition = 'center';
                         iconContainer.style.backgroundColor = 'white';
+                        
+                        // Force center alignment like other partners
+                        iconContainer.style.margin = '0 auto 0.75rem auto';
+                        iconContainer.style.display = 'flex';
+                        iconContainer.style.alignItems = 'center';
+                        iconContainer.style.justifyContent = 'center';
+                        iconContainer.style.width = '4rem';
+                        iconContainer.style.height = '4rem';
                     }
                     
                     if (title === '九州電工') {
@@ -52,6 +60,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         iconContainer.style.backgroundRepeat = 'no-repeat';
                         iconContainer.style.backgroundPosition = 'center';
                         iconContainer.style.backgroundColor = 'white';
+                        
+                        // Force center alignment like other partners
+                        iconContainer.style.margin = '0 auto 0.75rem auto';
+                        iconContainer.style.display = 'flex';
+                        iconContainer.style.alignItems = 'center';
+                        iconContainer.style.justifyContent = 'center';
                     }
                 }
             }
@@ -95,6 +109,14 @@ document.addEventListener('DOMContentLoaded', function() {
             container.style.backgroundRepeat = 'no-repeat';
             container.style.backgroundPosition = 'center';
             container.style.backgroundColor = 'white';
+            
+            // Force center alignment
+            container.style.margin = '0 auto 0.75rem auto';
+            container.style.display = 'flex';
+            container.style.alignItems = 'center';
+            container.style.justifyContent = 'center';
+            container.style.width = '4rem';
+            container.style.height = '4rem';
         });
         
         // Find YTAA specifically by looking for heart icon
@@ -109,6 +131,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 container.style.backgroundRepeat = 'no-repeat';
                 container.style.backgroundPosition = 'center';
                 container.style.backgroundColor = 'white';
+                
+                // Force center alignment
+                container.style.margin = '0 auto 0.75rem auto';
+                container.style.display = 'flex';
+                container.style.alignItems = 'center';
+                container.style.justifyContent = 'center';
             }
         });
         
@@ -123,6 +151,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 container.style.backgroundRepeat = 'no-repeat';
                 container.style.backgroundPosition = 'center';
                 container.style.backgroundColor = 'white';
+                
+                // Force center alignment
+                container.style.margin = '0 auto 0.75rem auto';
+                container.style.display = 'flex';
+                container.style.alignItems = 'center';
+                container.style.justifyContent = 'center';
             }
         });
     }, 2000);
