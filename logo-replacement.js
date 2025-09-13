@@ -30,12 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             svg.style.display = 'none';
                         }
                         
-                        // Set background image
+                        // Set background image with white background like other partners
                         iconContainer.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
-                        iconContainer.style.backgroundSize = '80%';
+                        iconContainer.style.backgroundSize = '70%';
                         iconContainer.style.backgroundRepeat = 'no-repeat';
                         iconContainer.style.backgroundPosition = 'center';
-                        iconContainer.style.backgroundColor = 'transparent';
+                        iconContainer.style.backgroundColor = 'white';
                     }
                     
                     if (title === '九州電工') {
@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             svg.style.display = 'none';
                         }
                         
-                        // Set background image
+                        // Set background image with white background like other partners
                         iconContainer.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
-                        iconContainer.style.backgroundSize = '80%';
+                        iconContainer.style.backgroundSize = '70%';
                         iconContainer.style.backgroundRepeat = 'no-repeat';
                         iconContainer.style.backgroundPosition = 'center';
-                        iconContainer.style.backgroundColor = 'transparent';
+                        iconContainer.style.backgroundColor = 'white';
                     }
                 }
             }
@@ -91,10 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 svg.style.display = 'none';
             }
             container.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
-            container.style.backgroundSize = '80%';
+            container.style.backgroundSize = '70%';
             container.style.backgroundRepeat = 'no-repeat';
             container.style.backgroundPosition = 'center';
-            container.style.backgroundColor = 'transparent';
+            container.style.backgroundColor = 'white';
         });
         
         // Find YTAA specifically by looking for heart icon
@@ -105,10 +105,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (container) {
                 icon.style.display = 'none';
                 container.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
-                container.style.backgroundSize = '80%';
+                container.style.backgroundSize = '70%';
                 container.style.backgroundRepeat = 'no-repeat';
                 container.style.backgroundPosition = 'center';
-                container.style.backgroundColor = 'transparent';
+                container.style.backgroundColor = 'white';
             }
         });
         
@@ -119,10 +119,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (container) {
                 icon.style.display = 'none';
                 container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
-                container.style.backgroundSize = '80%';
+                container.style.backgroundSize = '70%';
                 container.style.backgroundRepeat = 'no-repeat';
                 container.style.backgroundPosition = 'center';
-                container.style.backgroundColor = 'transparent';
+                container.style.backgroundColor = 'white';
             }
         });
     }, 2000);

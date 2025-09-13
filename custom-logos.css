@@ -3,10 +3,10 @@
 /* YTAA logo replacement - target the specific container with new class names */
 .w-12.h-12.bg-teal-500\/20.rounded-lg.flex.items-center.justify-center.mb-3 {
   background-image: url('./assets/YTAA.jpeg') !important;
-  background-size: 80% !important;
+  background-size: 70% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-color: transparent !important;
+  background-color: white !important;
 }
 
 .w-12.h-12.bg-teal-500\/20.rounded-lg.flex.items-center.justify-center.mb-3 svg {
@@ -16,10 +16,10 @@
 /* Alternative selector for YTAA */
 .w-12.h-12.rounded-lg.flex.items-center.justify-center.mb-3[class*="bg-teal-500"] {
   background-image: url('./assets/YTAA.jpeg') !important;
-  background-size: 80% !important;
+  background-size: 70% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-color: transparent !important;
+  background-color: white !important;
 }
 
 .w-12.h-12.rounded-lg.flex.items-center.justify-center.mb-3[class*="bg-teal-500"] svg {
@@ -29,9 +29,10 @@
 /* YTAA logo replacement - target the specific container */
 .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto:has(svg[data-lucide="heart"]) {
   background-image: url('./assets/YTAA.jpeg') !important;
-  background-size: 80% !important;
+  background-size: 70% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
+  background-color: white !important;
 }
 
 .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto:has(svg[data-lucide="heart"]) svg {
@@ -41,9 +42,10 @@
 /* Kyushudenko logo replacement - target the specific container */
 .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto:has(svg[data-lucide="trending-up"]) {
   background-image: url('./assets/Kyushudenko.jpeg') !important;
-  background-size: 80% !important;
+  background-size: 70% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
+  background-color: white !important;
 }
 
 .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto:has(svg[data-lucide="trending-up"]) svg {
@@ -53,9 +55,10 @@
 /* Alternative approach - target by text content */
 h3:contains("YTAA") ~ * .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto {
   background-image: url('./assets/YTAA.jpeg') !important;
-  background-size: 80% !important;
+  background-size: 70% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
+  background-color: white !important;
 }
 
 h3:contains("YTAA") ~ * .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto svg {
@@ -64,9 +67,10 @@ h3:contains("YTAA") ~ * .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify
 
 h3:contains("九州電工") ~ * .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto {
   background-image: url('./assets/Kyushudenko.jpeg') !important;
-  background-size: 80% !important;
+  background-size: 70% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
+  background-color: white !important;
 }
 
 h3:contains("九州電工") ~ * .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto svg {
@@ -77,9 +81,10 @@ h3:contains("九州電工") ~ * .w-16.h-16.bg-white.rounded-lg.flex.items-center
 /* YTAA is typically in a specific position in the partners grid */
 .grid > div:nth-child(5) .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto {
   background-image: url('./assets/YTAA.jpeg') !important;
-  background-size: 80% !important;
+  background-size: 70% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
+  background-color: white !important;
 }
 
 .grid > div:nth-child(5) .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto svg {
@@ -89,9 +94,10 @@ h3:contains("九州電工") ~ * .w-16.h-16.bg-white.rounded-lg.flex.items-center
 /* Kyushudenko is typically in a specific position in the partners grid */
 .grid > div:nth-child(6) .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto {
   background-image: url('./assets/Kyushudenko.jpeg') !important;
-  background-size: 80% !important;
+  background-size: 70% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
+  background-color: white !important;
 }
 
 .grid > div:nth-child(6) .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto svg {
