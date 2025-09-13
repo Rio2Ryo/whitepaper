@@ -1,5 +1,31 @@
 /* Custom CSS to replace YTAA and Kyushudenko icons with actual logos */
 
+/* YTAA logo replacement - target the specific container with new class names */
+.w-12.h-12.bg-teal-500\/20.rounded-lg.flex.items-center.justify-center.mb-3 {
+  background-image: url('./assets/YTAA.jpeg') !important;
+  background-size: 80% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: transparent !important;
+}
+
+.w-12.h-12.bg-teal-500\/20.rounded-lg.flex.items-center.justify-center.mb-3 svg {
+  display: none !important;
+}
+
+/* Alternative selector for YTAA */
+.w-12.h-12.rounded-lg.flex.items-center.justify-center.mb-3[class*="bg-teal-500"] {
+  background-image: url('./assets/YTAA.jpeg') !important;
+  background-size: 80% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: transparent !important;
+}
+
+.w-12.h-12.rounded-lg.flex.items-center.justify-center.mb-3[class*="bg-teal-500"] svg {
+  display: none !important;
+}
+
 /* YTAA logo replacement - target the specific container */
 .w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto:has(svg[data-lucide="heart"]) {
   background-image: url('./assets/YTAA.jpeg') !important;

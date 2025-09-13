@@ -13,8 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const title = titleElement.textContent.trim();
                 console.log(`Found partner: ${title}`);
                 
-                // Find the icon container
-                const iconContainer = card.querySelector('.w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto');
+                // Find the icon container with new class names
+                let iconContainer = card.querySelector('.w-12.h-12.bg-teal-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
+                
+                // Fallback to old class names
+                if (!iconContainer) {
+                    iconContainer = card.querySelector('.w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto');
+                }
                 
                 if (iconContainer) {
                     if (title === 'YTAA') {
@@ -30,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         iconContainer.style.backgroundSize = '80%';
                         iconContainer.style.backgroundRepeat = 'no-repeat';
                         iconContainer.style.backgroundPosition = 'center';
+                        iconContainer.style.backgroundColor = 'transparent';
                     }
                     
                     if (title === '九州電工') {
@@ -45,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         iconContainer.style.backgroundSize = '80%';
                         iconContainer.style.backgroundRepeat = 'no-repeat';
                         iconContainer.style.backgroundPosition = 'center';
+                        iconContainer.style.backgroundColor = 'transparent';
                     }
                 }
             }
@@ -76,16 +83,32 @@ document.addEventListener('DOMContentLoaded', function() {
 // Alternative approach using more specific selectors
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() {
+        // Target YTAA specifically by the new class name
+        const ytaaContainers = document.querySelectorAll('.w-12.h-12.bg-teal-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
+        ytaaContainers.forEach(function(container) {
+            const svg = container.querySelector('svg');
+            if (svg) {
+                svg.style.display = 'none';
+            }
+            container.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
+            container.style.backgroundSize = '80%';
+            container.style.backgroundRepeat = 'no-repeat';
+            container.style.backgroundPosition = 'center';
+            container.style.backgroundColor = 'transparent';
+        });
+        
         // Find YTAA specifically by looking for heart icon
         const heartIcons = document.querySelectorAll('svg[data-lucide="heart"]');
         heartIcons.forEach(function(icon) {
-            const container = icon.closest('.w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto');
+            const container = icon.closest('.w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto') ||
+                             icon.closest('.w-12.h-12.bg-teal-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
             if (container) {
                 icon.style.display = 'none';
                 container.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
                 container.style.backgroundSize = '80%';
                 container.style.backgroundRepeat = 'no-repeat';
                 container.style.backgroundPosition = 'center';
+                container.style.backgroundColor = 'transparent';
             }
         });
         
@@ -99,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 container.style.backgroundSize = '80%';
                 container.style.backgroundRepeat = 'no-repeat';
                 container.style.backgroundPosition = 'center';
+                container.style.backgroundColor = 'transparent';
             }
         });
     }, 2000);
