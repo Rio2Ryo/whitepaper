@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(`Found partner: ${title}`);
                 
                 // Find the icon container with new class names
-                let iconContainer = card.querySelector('.w-12.h-12.bg-teal-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
+                let iconContainer = card.querySelector('.w-12.h-12.bg-teal-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3') ||
+                                  card.querySelector('.w-12.h-12.bg-purple-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
                 
                 // Fallback to old class names
                 if (!iconContainer) {
@@ -66,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         iconContainer.style.display = 'flex';
                         iconContainer.style.alignItems = 'center';
                         iconContainer.style.justifyContent = 'center';
+                        iconContainer.style.width = '4rem';
+                        iconContainer.style.height = '4rem';
                     }
                 }
             }
@@ -119,6 +122,28 @@ document.addEventListener('DOMContentLoaded', function() {
             container.style.height = '4rem';
         });
         
+        // Target Kyushudenko specifically by the purple background class name
+        const kyushuContainers = document.querySelectorAll('.w-12.h-12.bg-purple-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
+        kyushuContainers.forEach(function(container) {
+            const svg = container.querySelector('svg');
+            if (svg) {
+                svg.style.display = 'none';
+            }
+            container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
+            container.style.backgroundSize = '70%';
+            container.style.backgroundRepeat = 'no-repeat';
+            container.style.backgroundPosition = 'center';
+            container.style.backgroundColor = 'white';
+            
+            // Force center alignment
+            container.style.margin = '0 auto 0.75rem auto';
+            container.style.display = 'flex';
+            container.style.alignItems = 'center';
+            container.style.justifyContent = 'center';
+            container.style.width = '4rem';
+            container.style.height = '4rem';
+        });
+        
         // Find YTAA specifically by looking for heart icon
         const heartIcons = document.querySelectorAll('svg[data-lucide="heart"]');
         heartIcons.forEach(function(icon) {
@@ -143,7 +168,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Find Kyushudenko specifically by looking for trending-up icon
         const trendingIcons = document.querySelectorAll('svg[data-lucide="trending-up"]');
         trendingIcons.forEach(function(icon) {
-            const container = icon.closest('.w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto');
+            const container = icon.closest('.w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto') ||
+                             icon.closest('.w-12.h-12.bg-purple-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
             if (container) {
                 icon.style.display = 'none';
                 container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
@@ -157,8 +183,92 @@ document.addEventListener('DOMContentLoaded', function() {
                 container.style.display = 'flex';
                 container.style.alignItems = 'center';
                 container.style.justifyContent = 'center';
+                container.style.width = '4rem';
+                container.style.height = '4rem';
+            }
+        });
+        
+        // Force replace all containers with purple background
+        const purpleContainers = document.querySelectorAll('[class*="bg-purple-500"]');
+        purpleContainers.forEach(function(container) {
+            if (container.classList.contains('w-12') || container.classList.contains('w-16')) {
+                const svg = container.querySelector('svg');
+                if (svg) {
+                    svg.style.display = 'none';
+                }
+                container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
+                container.style.backgroundSize = '70%';
+                container.style.backgroundRepeat = 'no-repeat';
+                container.style.backgroundPosition = 'center';
+                container.style.backgroundColor = 'white';
+                
+                // Force center alignment
+                container.style.margin = '0 auto 0.75rem auto';
+                container.style.display = 'flex';
+                container.style.alignItems = 'center';
+                container.style.justifyContent = 'center';
+                container.style.width = '4rem';
+                container.style.height = '4rem';
+            }
+        });
+        
+        // Additional approach: find by text content and replace nearby icons
+        const allH3 = document.querySelectorAll('h3');
+        allH3.forEach(function(h3) {
+            if (h3.textContent.includes('九州電工')) {
+                console.log('Found Kyushudenko by text content');
+                const parentCard = h3.closest('div');
+                if (parentCard) {
+                    const iconContainers = parentCard.querySelectorAll('.w-12, .w-16');
+                    iconContainers.forEach(function(container) {
+                        if (container.classList.contains('h-12') || container.classList.contains('h-16')) {
+                            const svg = container.querySelector('svg');
+                            if (svg) {
+                                svg.style.display = 'none';
+                            }
+                            container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
+                            container.style.backgroundSize = '70%';
+                            container.style.backgroundRepeat = 'no-repeat';
+                            container.style.backgroundPosition = 'center';
+                            container.style.backgroundColor = 'white';
+                            
+                            // Force center alignment
+                            container.style.margin = '0 auto 0.75rem auto';
+                            container.style.display = 'flex';
+                            container.style.alignItems = 'center';
+                            container.style.justifyContent = 'center';
+                            container.style.width = '4rem';
+                            container.style.height = '4rem';
+                        }
+                    });
+                }
             }
         });
     }, 2000);
+    
+    // Additional delayed attempt for Kyushudenko
+    setTimeout(function() {
+        console.log('Final attempt to replace Kyushudenko logo');
+        
+        // Find all trending-up icons and force replace
+        const allTrendingIcons = document.querySelectorAll('svg[data-lucide="trending-up"], .lucide-trending-up');
+        allTrendingIcons.forEach(function(icon) {
+            const container = icon.parentElement;
+            if (container) {
+                icon.style.display = 'none';
+                container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
+                container.style.backgroundSize = '70%';
+                container.style.backgroundRepeat = 'no-repeat';
+                container.style.backgroundPosition = 'center';
+                container.style.backgroundColor = 'white';
+                container.style.margin = '0 auto 0.75rem auto';
+                container.style.display = 'flex';
+                container.style.alignItems = 'center';
+                container.style.justifyContent = 'center';
+                container.style.width = '4rem';
+                container.style.height = '4rem';
+            }
+        });
+    }, 5000);
 });
 
