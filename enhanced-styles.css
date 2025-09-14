@@ -1,0 +1,144 @@
+/* Enhanced styles for back to top button and header menu */
+
+/* Back to top button styles */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.back-to-top-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.back-to-top-btn:active {
+    transform: scale(0.95);
+}
+
+/* Enhanced header menu styles */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Navigation menu enhancements */
+nav ul li a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #10b981 !important;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #10b981, #059669);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Whitepaper download button special styling */
+nav ul li a[download] {
+    background: linear-gradient(135deg, #10b981, #059669);
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: white !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+nav ul li a[download]:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+nav ul li a[download]::after {
+    display: none;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .back-to-top-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    nav ul li a[download] {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section padding for proper anchor navigation */
+section, div[id] {
+    scroll-margin-top: 80px;
+}
+
+/* Enhanced mobile menu button */
+.mobile-menu-button {
+    background: linear-gradient(135deg, #10b981, #059669);
+    border: none;
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-button:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: scale(1.05);
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.mobile-menu a {
+    border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu a:hover {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981 !important;
+}
+
