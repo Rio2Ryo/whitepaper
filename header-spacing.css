@@ -1,0 +1,95 @@
+/* Header menu button spacing adjustments */
+
+/* Add more spacing between header menu buttons */
+header nav ul li,
+header nav .flex > *,
+header .space-x-8 > *,
+nav ul li,
+nav .flex > *,
+nav .space-x-8 > * {
+    margin-right: 24px !important;
+    margin-left: 8px !important;
+}
+
+/* Specific targeting for navigation buttons */
+header button,
+nav button {
+    margin-right: 16px !important;
+    margin-left: 8px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+}
+
+/* Add spacing to navigation links */
+header a,
+nav a {
+    margin-right: 16px !important;
+    margin-left: 8px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+}
+
+/* Ensure proper spacing for flex containers in header */
+header .flex,
+nav .flex {
+    gap: 24px !important;
+}
+
+/* Add spacing to space-x utility classes */
+.space-x-8 > * + * {
+    margin-left: 32px !important;
+}
+
+.space-x-6 > * + * {
+    margin-left: 24px !important;
+}
+
+.space-x-4 > * + * {
+    margin-left: 20px !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    header nav ul li,
+    header nav .flex > *,
+    nav ul li,
+    nav .flex > * {
+        margin-right: 16px !important;
+        margin-left: 4px !important;
+    }
+    
+    header button,
+    nav button {
+        margin-right: 12px !important;
+        margin-left: 4px !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    
+    header .flex,
+    nav .flex {
+        gap: 16px !important;
+    }
+}
+
+/* Ensure last item doesn't have extra margin */
+header nav ul li:last-child,
+header nav .flex > *:last-child,
+nav ul li:last-child,
+nav .flex > *:last-child {
+    margin-right: 0 !important;
+}
+
+/* Add breathing room to the entire header */
+header {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+}
+
+/* Specific adjustments for common header layouts */
+header > div,
+nav > div {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+}
+
