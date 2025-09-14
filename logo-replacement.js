@@ -1,274 +1,269 @@
 // JavaScript to replace YTAA and Kyushudenko icons with actual logos
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Logo replacement script loaded');
-    
-    // Function to replace logos
-    function replaceLogos() {
-        // Find all partner cards
-        const partnerCards = document.querySelectorAll('.grid > div');
-        
-        partnerCards.forEach((card, index) => {
-            const titleElement = card.querySelector('h3');
-            if (titleElement) {
-                const title = titleElement.textContent.trim();
-                console.log(`Found partner: ${title}`);
-                
-                // Find the icon container with new class names
-                let iconContainer = card.querySelector('.w-12.h-12.bg-teal-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3') ||
-                                  card.querySelector('.w-12.h-12.bg-purple-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
-                
-                // Fallback to old class names
-                if (!iconContainer) {
-                    iconContainer = card.querySelector('.w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto');
-                }
-                
-                if (iconContainer) {
-                    if (title === 'YTAA') {
-                        console.log('Replacing YTAA icon');
-                        // Hide the SVG icon
-                        const svg = iconContainer.querySelector('svg');
-                        if (svg) {
-                            svg.style.display = 'none';
-                        }
-                        
-                        // Set background image with white background like other partners
-                        iconContainer.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
-                        iconContainer.style.backgroundSize = '70%';
-                        iconContainer.style.backgroundRepeat = 'no-repeat';
-                        iconContainer.style.backgroundPosition = 'center';
-                        iconContainer.style.backgroundColor = 'white';
-                        
-                        // Force center alignment like other partners
-                        iconContainer.style.margin = '0 auto 0.75rem auto';
-                        iconContainer.style.display = 'flex';
-                        iconContainer.style.alignItems = 'center';
-                        iconContainer.style.justifyContent = 'center';
-                        iconContainer.style.width = '4rem';
-                        iconContainer.style.height = '4rem';
-                    }
-                    
-                    if (title === '九州電工') {
-                        console.log('Replacing Kyushudenko icon');
-                        // Hide the SVG icon
-                        const svg = iconContainer.querySelector('svg');
-                        if (svg) {
-                            svg.style.display = 'none';
-                        }
-                        
-                        // Set background image with white background like other partners
-                        iconContainer.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
-                        iconContainer.style.backgroundSize = '70%';
-                        iconContainer.style.backgroundRepeat = 'no-repeat';
-                        iconContainer.style.backgroundPosition = 'center';
-                        iconContainer.style.backgroundColor = 'white';
-                        
-                        // Force center alignment like other partners
-                        iconContainer.style.margin = '0 auto 0.75rem auto';
-                        iconContainer.style.display = 'flex';
-                        iconContainer.style.alignItems = 'center';
-                        iconContainer.style.justifyContent = 'center';
-                        iconContainer.style.width = '4rem';
-                        iconContainer.style.height = '4rem';
-                    }
-                }
-            }
-        });
+function replaceLogos() {
+  console.log('Starting logo replacement...');
+  
+  // Method 1: Target by specific class names (most reliable)
+  // YTAA - teal background
+  const ytaaContainers = document.querySelectorAll('.w-12.h-12.bg-teal-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
+  ytaaContainers.forEach(container => {
+    console.log('Found YTAA container by class name');
+    container.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
+    container.style.backgroundSize = '70%';
+    container.style.backgroundRepeat = 'no-repeat';
+    container.style.backgroundPosition = 'center';
+    container.style.backgroundColor = 'white';
+    container.style.width = '4rem';
+    container.style.height = '4rem';
+    container.style.margin = '0 auto 0.75rem auto';
+    container.style.display = 'flex';
+    container.style.alignItems = 'center';
+    container.style.justifyContent = 'center';
+    // Hide the SVG icon
+    const svg = container.querySelector('svg');
+    if (svg) svg.style.display = 'none';
+  });
+  
+  // Kyushudenko - indigo background (correct class name)
+  const kyushuContainers = document.querySelectorAll('.w-12.h-12.bg-indigo-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
+  kyushuContainers.forEach(container => {
+    console.log('Found Kyushudenko container by indigo class name');
+    container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
+    container.style.backgroundSize = '70%';
+    container.style.backgroundRepeat = 'no-repeat';
+    container.style.backgroundPosition = 'center';
+    container.style.backgroundColor = 'white';
+    container.style.width = '4rem';
+    container.style.height = '4rem';
+    container.style.margin = '0 auto 0.75rem auto';
+    container.style.display = 'flex';
+    container.style.alignItems = 'center';
+    container.style.justifyContent = 'center';
+    // Hide the SVG icon
+    const svg = container.querySelector('svg');
+    if (svg) svg.style.display = 'none';
+  });
+  
+  // Kyushudenko - purple background (fallback)
+  const kyushuContainersPurple = document.querySelectorAll('.w-12.h-12.bg-purple-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
+  kyushuContainersPurple.forEach(container => {
+    console.log('Found Kyushudenko container by purple class name');
+    container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
+    container.style.backgroundSize = '70%';
+    container.style.backgroundRepeat = 'no-repeat';
+    container.style.backgroundPosition = 'center';
+    container.style.backgroundColor = 'white';
+    container.style.width = '4rem';
+    container.style.height = '4rem';
+    container.style.margin = '0 auto 0.75rem auto';
+    container.style.display = 'flex';
+    container.style.alignItems = 'center';
+    container.style.justifyContent = 'center';
+    // Hide the SVG icon
+    const svg = container.querySelector('svg');
+    if (svg) svg.style.display = 'none';
+  });
+  
+  // Method 2: Target by SVG data-lucide attributes
+  const heartIcons = document.querySelectorAll('svg[data-lucide="heart"]');
+  heartIcons.forEach(icon => {
+    console.log('Found heart icon');
+    const container = icon.closest('.w-12, .w-16');
+    if (container) {
+      container.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
+      container.style.backgroundSize = '70%';
+      container.style.backgroundRepeat = 'no-repeat';
+      container.style.backgroundPosition = 'center';
+      container.style.backgroundColor = 'white';
+      container.style.width = '4rem';
+      container.style.height = '4rem';
+      container.style.margin = '0 auto 0.75rem auto';
+      container.style.display = 'flex';
+      container.style.alignItems = 'center';
+      container.style.justifyContent = 'center';
+      icon.style.display = 'none';
+    }
+  });
+  
+  const trendingUpIcons = document.querySelectorAll('svg[data-lucide="trending-up"]');
+  trendingUpIcons.forEach(icon => {
+    console.log('Found trending-up icon');
+    const container = icon.closest('.w-12, .w-16');
+    if (container) {
+      container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
+      container.style.backgroundSize = '70%';
+      container.style.backgroundRepeat = 'no-repeat';
+      container.style.backgroundPosition = 'center';
+      container.style.backgroundColor = 'white';
+      container.style.width = '4rem';
+      container.style.height = '4rem';
+      container.style.margin = '0 auto 0.75rem auto';
+      container.style.display = 'flex';
+      container.style.alignItems = 'center';
+      container.style.justifyContent = 'center';
+      icon.style.display = 'none';
+    }
+  });
+  
+  // Method 3: Target by text content
+  const allH3s = document.querySelectorAll('h3');
+  allH3s.forEach(h3 => {
+    if (h3.textContent.includes('YTAA')) {
+      console.log('Found YTAA by text content');
+      const container = h3.parentElement.querySelector('.w-12, .w-16');
+      if (container) {
+        container.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
+        container.style.backgroundSize = '70%';
+        container.style.backgroundRepeat = 'no-repeat';
+        container.style.backgroundPosition = 'center';
+        container.style.backgroundColor = 'white';
+        container.style.width = '4rem';
+        container.style.height = '4rem';
+        container.style.margin = '0 auto 0.75rem auto';
+        container.style.display = 'flex';
+        container.style.alignItems = 'center';
+        container.style.justifyContent = 'center';
+        const svg = container.querySelector('svg');
+        if (svg) svg.style.display = 'none';
+      }
     }
     
-    // Try to replace logos immediately
-    replaceLogos();
+    if (h3.textContent.includes('九州電工')) {
+      console.log('Found Kyushudenko by text content');
+      const container = h3.parentElement.querySelector('.w-12, .w-16');
+      if (container) {
+        container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
+        container.style.backgroundSize = '70%';
+        container.style.backgroundRepeat = 'no-repeat';
+        container.style.backgroundPosition = 'center';
+        container.style.backgroundColor = 'white';
+        container.style.width = '4rem';
+        container.style.height = '4rem';
+        container.style.margin = '0 auto 0.75rem auto';
+        container.style.display = 'flex';
+        container.style.alignItems = 'center';
+        container.style.justifyContent = 'center';
+        const svg = container.querySelector('svg');
+        if (svg) svg.style.display = 'none';
+      }
+    }
+  });
+  
+  // Method 4: Target by class attribute containing specific background colors
+  const allDivs = document.querySelectorAll('div[class*="bg-teal-500"], div[class*="bg-indigo-500"], div[class*="bg-purple-500"]');
+  allDivs.forEach(div => {
+    if (div.className.includes('bg-teal-500')) {
+      console.log('Found teal background div');
+      div.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
+      div.style.backgroundSize = '70%';
+      div.style.backgroundRepeat = 'no-repeat';
+      div.style.backgroundPosition = 'center';
+      div.style.backgroundColor = 'white';
+      div.style.width = '4rem';
+      div.style.height = '4rem';
+      div.style.margin = '0 auto 0.75rem auto';
+      div.style.display = 'flex';
+      div.style.alignItems = 'center';
+      div.style.justifyContent = 'center';
+      const svg = div.querySelector('svg');
+      if (svg) svg.style.display = 'none';
+    }
     
-    // Also try after a short delay in case content is dynamically loaded
-    setTimeout(replaceLogos, 1000);
-    setTimeout(replaceLogos, 3000);
+    if (div.className.includes('bg-indigo-500') || div.className.includes('bg-purple-500')) {
+      console.log('Found indigo/purple background div');
+      div.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
+      div.style.backgroundSize = '70%';
+      div.style.backgroundRepeat = 'no-repeat';
+      div.style.backgroundPosition = 'center';
+      div.style.backgroundColor = 'white';
+      div.style.width = '4rem';
+      div.style.height = '4rem';
+      div.style.margin = '0 auto 0.75rem auto';
+      div.style.display = 'flex';
+      div.style.alignItems = 'center';
+      div.style.justifyContent = 'center';
+      const svg = div.querySelector('svg');
+      if (svg) svg.style.display = 'none';
+    }
+  });
+  
+  // Method 5: Target by position in grid (if other methods fail)
+  const gridItems = document.querySelectorAll('.grid > div');
+  if (gridItems.length >= 6) {
+    // YTAA is typically the 5th item (index 4)
+    const ytaaItem = gridItems[4];
+    if (ytaaItem) {
+      const container = ytaaItem.querySelector('.w-12, .w-16');
+      if (container) {
+        console.log('Found YTAA by grid position');
+        container.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
+        container.style.backgroundSize = '70%';
+        container.style.backgroundRepeat = 'no-repeat';
+        container.style.backgroundPosition = 'center';
+        container.style.backgroundColor = 'white';
+        container.style.width = '4rem';
+        container.style.height = '4rem';
+        container.style.margin = '0 auto 0.75rem auto';
+        container.style.display = 'flex';
+        container.style.alignItems = 'center';
+        container.style.justifyContent = 'center';
+        const svg = container.querySelector('svg');
+        if (svg) svg.style.display = 'none';
+      }
+    }
     
-    // Watch for DOM changes
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.type === 'childList') {
-                replaceLogos();
-            }
-        });
-    });
-    
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
+    // Kyushudenko is typically the 6th item (index 5)
+    const kyushuItem = gridItems[5];
+    if (kyushuItem) {
+      const container = kyushuItem.querySelector('.w-12, .w-16');
+      if (container) {
+        console.log('Found Kyushudenko by grid position');
+        container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
+        container.style.backgroundSize = '70%';
+        container.style.backgroundRepeat = 'no-repeat';
+        container.style.backgroundPosition = 'center';
+        container.style.backgroundColor = 'white';
+        container.style.width = '4rem';
+        container.style.height = '4rem';
+        container.style.margin = '0 auto 0.75rem auto';
+        container.style.display = 'flex';
+        container.style.alignItems = 'center';
+        container.style.justifyContent = 'center';
+        const svg = container.querySelector('svg');
+        if (svg) svg.style.display = 'none';
+      }
+    }
+  }
+  
+  console.log('Logo replacement completed');
+}
+
+// Run immediately when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', replaceLogos);
+} else {
+  replaceLogos();
+}
+
+// Run after a short delay to catch dynamically loaded content
+setTimeout(replaceLogos, 1000);
+setTimeout(replaceLogos, 2000);
+setTimeout(replaceLogos, 5000);
+
+// Watch for DOM changes and re-run if needed
+const observer = new MutationObserver(function(mutations) {
+  let shouldReplace = false;
+  mutations.forEach(function(mutation) {
+    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+      shouldReplace = true;
+    }
+  });
+  if (shouldReplace) {
+    setTimeout(replaceLogos, 100);
+  }
 });
 
-// Alternative approach using more specific selectors
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-        // Target YTAA specifically by the new class name
-        const ytaaContainers = document.querySelectorAll('.w-12.h-12.bg-teal-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
-        ytaaContainers.forEach(function(container) {
-            const svg = container.querySelector('svg');
-            if (svg) {
-                svg.style.display = 'none';
-            }
-            container.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
-            container.style.backgroundSize = '70%';
-            container.style.backgroundRepeat = 'no-repeat';
-            container.style.backgroundPosition = 'center';
-            container.style.backgroundColor = 'white';
-            
-            // Force center alignment
-            container.style.margin = '0 auto 0.75rem auto';
-            container.style.display = 'flex';
-            container.style.alignItems = 'center';
-            container.style.justifyContent = 'center';
-            container.style.width = '4rem';
-            container.style.height = '4rem';
-        });
-        
-        // Target Kyushudenko specifically by the purple background class name
-        const kyushuContainers = document.querySelectorAll('.w-12.h-12.bg-purple-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
-        kyushuContainers.forEach(function(container) {
-            const svg = container.querySelector('svg');
-            if (svg) {
-                svg.style.display = 'none';
-            }
-            container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
-            container.style.backgroundSize = '70%';
-            container.style.backgroundRepeat = 'no-repeat';
-            container.style.backgroundPosition = 'center';
-            container.style.backgroundColor = 'white';
-            
-            // Force center alignment
-            container.style.margin = '0 auto 0.75rem auto';
-            container.style.display = 'flex';
-            container.style.alignItems = 'center';
-            container.style.justifyContent = 'center';
-            container.style.width = '4rem';
-            container.style.height = '4rem';
-        });
-        
-        // Find YTAA specifically by looking for heart icon
-        const heartIcons = document.querySelectorAll('svg[data-lucide="heart"]');
-        heartIcons.forEach(function(icon) {
-            const container = icon.closest('.w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto') ||
-                             icon.closest('.w-12.h-12.bg-teal-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
-            if (container) {
-                icon.style.display = 'none';
-                container.style.backgroundImage = 'url("./assets/YTAA.jpeg")';
-                container.style.backgroundSize = '70%';
-                container.style.backgroundRepeat = 'no-repeat';
-                container.style.backgroundPosition = 'center';
-                container.style.backgroundColor = 'white';
-                
-                // Force center alignment
-                container.style.margin = '0 auto 0.75rem auto';
-                container.style.display = 'flex';
-                container.style.alignItems = 'center';
-                container.style.justifyContent = 'center';
-            }
-        });
-        
-        // Find Kyushudenko specifically by looking for trending-up icon
-        const trendingIcons = document.querySelectorAll('svg[data-lucide="trending-up"]');
-        trendingIcons.forEach(function(icon) {
-            const container = icon.closest('.w-16.h-16.bg-white.rounded-lg.flex.items-center.justify-center.mb-3.mx-auto') ||
-                             icon.closest('.w-12.h-12.bg-purple-500\\/20.rounded-lg.flex.items-center.justify-center.mb-3');
-            if (container) {
-                icon.style.display = 'none';
-                container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
-                container.style.backgroundSize = '70%';
-                container.style.backgroundRepeat = 'no-repeat';
-                container.style.backgroundPosition = 'center';
-                container.style.backgroundColor = 'white';
-                
-                // Force center alignment
-                container.style.margin = '0 auto 0.75rem auto';
-                container.style.display = 'flex';
-                container.style.alignItems = 'center';
-                container.style.justifyContent = 'center';
-                container.style.width = '4rem';
-                container.style.height = '4rem';
-            }
-        });
-        
-        // Force replace all containers with purple background
-        const purpleContainers = document.querySelectorAll('[class*="bg-purple-500"]');
-        purpleContainers.forEach(function(container) {
-            if (container.classList.contains('w-12') || container.classList.contains('w-16')) {
-                const svg = container.querySelector('svg');
-                if (svg) {
-                    svg.style.display = 'none';
-                }
-                container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
-                container.style.backgroundSize = '70%';
-                container.style.backgroundRepeat = 'no-repeat';
-                container.style.backgroundPosition = 'center';
-                container.style.backgroundColor = 'white';
-                
-                // Force center alignment
-                container.style.margin = '0 auto 0.75rem auto';
-                container.style.display = 'flex';
-                container.style.alignItems = 'center';
-                container.style.justifyContent = 'center';
-                container.style.width = '4rem';
-                container.style.height = '4rem';
-            }
-        });
-        
-        // Additional approach: find by text content and replace nearby icons
-        const allH3 = document.querySelectorAll('h3');
-        allH3.forEach(function(h3) {
-            if (h3.textContent.includes('九州電工')) {
-                console.log('Found Kyushudenko by text content');
-                const parentCard = h3.closest('div');
-                if (parentCard) {
-                    const iconContainers = parentCard.querySelectorAll('.w-12, .w-16');
-                    iconContainers.forEach(function(container) {
-                        if (container.classList.contains('h-12') || container.classList.contains('h-16')) {
-                            const svg = container.querySelector('svg');
-                            if (svg) {
-                                svg.style.display = 'none';
-                            }
-                            container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
-                            container.style.backgroundSize = '70%';
-                            container.style.backgroundRepeat = 'no-repeat';
-                            container.style.backgroundPosition = 'center';
-                            container.style.backgroundColor = 'white';
-                            
-                            // Force center alignment
-                            container.style.margin = '0 auto 0.75rem auto';
-                            container.style.display = 'flex';
-                            container.style.alignItems = 'center';
-                            container.style.justifyContent = 'center';
-                            container.style.width = '4rem';
-                            container.style.height = '4rem';
-                        }
-                    });
-                }
-            }
-        });
-    }, 2000);
-    
-    // Additional delayed attempt for Kyushudenko
-    setTimeout(function() {
-        console.log('Final attempt to replace Kyushudenko logo');
-        
-        // Find all trending-up icons and force replace
-        const allTrendingIcons = document.querySelectorAll('svg[data-lucide="trending-up"], .lucide-trending-up');
-        allTrendingIcons.forEach(function(icon) {
-            const container = icon.parentElement;
-            if (container) {
-                icon.style.display = 'none';
-                container.style.backgroundImage = 'url("./assets/Kyushudenko.jpeg")';
-                container.style.backgroundSize = '70%';
-                container.style.backgroundRepeat = 'no-repeat';
-                container.style.backgroundPosition = 'center';
-                container.style.backgroundColor = 'white';
-                container.style.margin = '0 auto 0.75rem auto';
-                container.style.display = 'flex';
-                container.style.alignItems = 'center';
-                container.style.justifyContent = 'center';
-                container.style.width = '4rem';
-                container.style.height = '4rem';
-            }
-        });
-    }, 5000);
+observer.observe(document.body, {
+  childList: true,
+  subtree: true
 });
 

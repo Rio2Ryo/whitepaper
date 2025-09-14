@@ -20,7 +20,27 @@
   display: none !important;
 }
 
-/* Kyushudenko logo replacement - target the specific container with purple background */
+/* Kyushudenko logo replacement - target the specific container with indigo background */
+.w-12.h-12.bg-indigo-500\/20.rounded-lg.flex.items-center.justify-center.mb-3 {
+  background-image: url('./assets/Kyushudenko.jpeg') !important;
+  background-size: 70% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: white !important;
+  /* Force center alignment like other partners */
+  width: 4rem !important;
+  height: 4rem !important;
+  margin: 0 auto 0.75rem auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.w-12.h-12.bg-indigo-500\/20.rounded-lg.flex.items-center.justify-center.mb-3 svg {
+  display: none !important;
+}
+
+/* Kyushudenko logo replacement - target the specific container with purple background (fallback) */
 .w-12.h-12.bg-purple-500\/20.rounded-lg.flex.items-center.justify-center.mb-3 {
   background-image: url('./assets/Kyushudenko.jpeg') !important;
   background-size: 70% !important;
@@ -61,6 +81,25 @@
 }
 
 /* Alternative selector for Kyushudenko */
+.w-12.h-12.rounded-lg.flex.items-center.justify-center.mb-3[class*="bg-indigo-500"] {
+  background-image: url('./assets/Kyushudenko.jpeg') !important;
+  background-size: 70% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: white !important;
+  /* Force center alignment like other partners */
+  width: 4rem !important;
+  height: 4rem !important;
+  margin: 0 auto 0.75rem auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.w-12.h-12.rounded-lg.flex.items-center.justify-center.mb-3[class*="bg-indigo-500"] svg {
+  display: none !important;
+}
+
 .w-12.h-12.rounded-lg.flex.items-center.justify-center.mb-3[class*="bg-purple-500"] {
   background-image: url('./assets/Kyushudenko.jpeg') !important;
   background-size: 70% !important;
