@@ -1,0 +1,82 @@
+/* Hero section spacing adjustments */
+
+/* Add top margin/padding to the hero section */
+main > div:first-child,
+.hero-section,
+div[class*="hero"],
+section:first-of-type,
+#root > div > div:first-child {
+    margin-top: 80px !important;
+    padding-top: 40px !important;
+}
+
+/* Alternative selectors for hero section */
+div:has(h1:contains("MOTHER VEGETABLES")),
+div:has(h1[class*="text-6xl"]),
+div:has(h1[class*="text-5xl"]),
+div:has(.text-6xl),
+div:has(.text-5xl) {
+    margin-top: 80px !important;
+    padding-top: 40px !important;
+}
+
+/* Ensure the main title has proper spacing */
+h1:contains("MOTHER VEGETABLES"),
+h1[class*="text-6xl"],
+h1[class*="text-5xl"] {
+    margin-top: 40px !important;
+}
+
+/* Add spacing to the container that holds the hero content */
+div[class*="min-h-screen"]:first-child,
+div[class*="h-screen"]:first-child,
+div[class*="flex"][class*="items-center"]:first-child {
+    padding-top: 120px !important;
+}
+
+/* Specific targeting for the hero background container */
+div[style*="background-image"]:first-child,
+div[class*="bg-gradient"]:first-child,
+div[class*="relative"]:first-child {
+    padding-top: 80px !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    main > div:first-child,
+    .hero-section,
+    div[class*="hero"],
+    section:first-of-type,
+    #root > div > div:first-child {
+        margin-top: 60px !important;
+        padding-top: 30px !important;
+    }
+    
+    div[class*="min-h-screen"]:first-child,
+    div[class*="h-screen"]:first-child,
+    div[class*="flex"][class*="items-center"]:first-child {
+        padding-top: 90px !important;
+    }
+    
+    h1:contains("MOTHER VEGETABLES"),
+    h1[class*="text-6xl"],
+    h1[class*="text-5xl"] {
+        margin-top: 30px !important;
+    }
+}
+
+/* Ensure header doesn't overlap with hero content */
+header + * {
+    margin-top: 80px !important;
+}
+
+/* Additional spacing for the main content area */
+body > div > div:first-child {
+    padding-top: 80px !important;
+}
+
+/* Target the React root container's first child */
+#root > div:first-child {
+    padding-top: 80px !important;
+}
+
