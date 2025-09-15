@@ -1,6 +1,6 @@
 /* Header Menu Spacing Improvements */
 h1 {
-    display: none!important;
+    margin-top: 60px!important;
 }
 /* Improve navigation menu spacing and layout */
 nav ul {
