@@ -1,5 +1,7 @@
 /* Header Menu Spacing Improvements */
-
+h1 {
+    display: none!important;
+}
 /* Improve navigation menu spacing and layout */
 nav ul {
     display: flex;
