@@ -43,13 +43,14 @@ div[class*="relative"]:first-child {
 
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
+    /* Remove extra spacing on containers; we only need space above the title */
     main > div:first-child,
     .hero-section,
     div[class*="hero"],
     section:first-of-type,
     #root > div > div:first-child {
-        margin-top: 60px !important;
-        padding-top: 30px !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
     
     div[class*="min-h-screen"]:first-child,
@@ -61,7 +62,7 @@ div[class*="relative"]:first-child {
     h1:contains("MOTHER VEGETABLES"),
     h1[class*="text-6xl"],
     h1[class*="text-5xl"] {
-        margin-top: 150px !important; /* Further increased to 150px for more spacing on mobile */
+        margin-top: 80px !important;
     }
 }
 
