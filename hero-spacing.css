@@ -1,3 +1,5 @@
+/* ===== 以下、追加されたCSSの全文です ===== */
+
 /* Hero section spacing adjustments */
 
 /* Add top margin/padding to the hero section */
@@ -43,14 +45,13 @@ div[class*="relative"]:first-child {
 
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
-    /* Remove extra spacing on containers; we only need space above the title */
     main > div:first-child,
     .hero-section,
     div[class*="hero"],
     section:first-of-type,
     #root > div > div:first-child {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
+        margin-top: 60px !important;
+        padding-top: 30px !important;
     }
     
     div[class*="min-h-screen"]:first-child,
@@ -62,7 +63,7 @@ div[class*="relative"]:first-child {
     h1:contains("MOTHER VEGETABLES"),
     h1[class*="text-6xl"],
     h1[class*="text-5xl"] {
-        margin-top: 80px !important;
+        margin-top: 30px !important;
     }
 }
 
@@ -81,3 +82,7 @@ body > div > div:first-child {
     padding-top: 80px !important;
 }
 
+/* 最初に指定されたh1のスタイル */
+h1 {
+  margin-top: 80px;
+}
