@@ -61,7 +61,7 @@ div[class*="relative"]:first-child {
     h1:contains("MOTHER VEGETABLES"),
     h1[class*="text-6xl"],
     h1[class*="text-5xl"] {
-        margin-top: 80px !important; /* Adjusted as requested */
+        margin-top: 30px !important;
     }
 }
 
@@ -74,6 +74,7 @@ header + * {
 body > div > div:first-child {
     padding-top: 80px !important;
 }
+
 /* Target the React root container's first child */
 #root > div:first-child {
     padding-top: 80px !important;
