@@ -1,0 +1,84 @@
+/* Header Menu Spacing Improvements */
+
+/* Improve navigation menu spacing and layout */
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Consistent spacing between menu items */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0; /* Remove default margins */
+}
+
+nav ul li a,
+nav ul li button {
+    display: inline-block;
+    padding: 0.75rem 1rem; /* Consistent padding for all menu items */
+    margin: 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Ensure proper spacing for mobile menu */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    nav ul li a,
+    nav ul li button {
+        padding: 0.5rem 1rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Header container improvements */
+header {
+    padding: 1rem 2rem; /* Consistent header padding */
+}
+
+header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo spacing */
+header .logo {
+    margin-right: 2rem;
+}
+
+/* Navigation wrapper */
+header nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    header {
+        padding: 0.75rem 1.5rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem 1rem;
+    }
+}
+
