@@ -1,5 +1,5 @@
 /* Hero section spacing adjustments */
-#hero > h1{
+#hero h1{
     margin-top: 200px!important;
 }
 
