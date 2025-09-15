@@ -61,7 +61,7 @@ div[class*="relative"]:first-child {
     h1:contains("MOTHER VEGETABLES"),
     h1[class*="text-6xl"],
     h1[class*="text-5xl"] {
-        margin-top: 30px !important;
+        margin-top: 80px !important; /* Adjusted as requested */
     }
 }
 
