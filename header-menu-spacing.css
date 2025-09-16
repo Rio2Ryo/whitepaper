@@ -15,6 +15,9 @@ h1 {
     margin-top: -1.3rem;
     font-size: 4.7rem;
   }
+  .bg-gray-800\/30.p-8.rounded-2xl.border.border-gray-700\/50.mb-16{
+    margin-top: 50px!important;
+}
 @media (max-width: 768px) {
 h2 {
     font-size: 1.4rem!important;
@@ -26,6 +29,7 @@ nav .hidden.md\:flex.items-center.gap-6 {
         display: contents;
         font-size: 0.6rem !important;        
     }
+    
   }
 
 
