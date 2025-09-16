@@ -164,6 +164,22 @@
         }
     }
     
+    // Rename navigation menu items
+    function renameNavItems() {
+        const nav = document.querySelector('nav');
+        if (!nav) return;
+
+        // Collect all anchor elements inside the nav (including inside <ul> or flex containers)
+        const anchors = nav.querySelectorAll('a');
+        const labels = ['メンバー', 'プロジェクト詳細', 'ショップ', 'ホワイトペーパー'];
+
+        anchors.forEach((anchor, idx) => {
+            if (idx < labels.length) {
+                anchor.textContent = labels[idx];
+            }
+        });
+    }
+
     // Add smooth scrolling
     function addSmoothScrolling() {
         // Add smooth scroll behavior to html
@@ -197,6 +213,7 @@
                 createBackToTopButton();
                 addWhitepaperDownload();
                 makeHeaderSticky();
+                renameNavItems();
                 addSmoothScrolling();
                 
                 console.log('All enhanced features initialized successfully');
