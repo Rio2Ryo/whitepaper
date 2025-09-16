@@ -8,7 +8,7 @@ section + section {
 /* Mobile: reduce spacing between sections */
 @media (max-width: 768px) {
     section + section {
-        margin-top: 80px;
+        margin-top: 90px;
     }
 }
 
