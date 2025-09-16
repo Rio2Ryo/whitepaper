@@ -18,6 +18,9 @@ h1 {
   .bg-gray-800\/30.p-8.rounded-2xl.border.border-gray-700\/50.mb-16{
     margin-top: 100px!important;
 }
+.mb-16{
+    margin-bottom: 100px!important;
+}
 
 
 @media (max-width: 768px) {
