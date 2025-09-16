@@ -4,6 +4,9 @@
 section + section {
     margin-top: 100px; /* Default (desktop) spacing */
 }
+h2 {
+    font-size: 1.4rem!important;
+}
 
 /* Mobile: reduce spacing between sections */
 @media (max-width: 768px) {
