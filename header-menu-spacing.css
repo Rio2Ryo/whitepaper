@@ -18,9 +18,7 @@ h1 {
   .bg-gray-800\/30.p-8.rounded-2xl.border.border-gray-700\/50.mb-16{
     margin-top: 100px!important;
 }
-.bg-gray-800\/50.p-8.rounded-2xl.border.border-gray-700\/50{
-    margin-top: 100px!important;
-}
+
 
 @media (max-width: 768px) {
 h2 {
