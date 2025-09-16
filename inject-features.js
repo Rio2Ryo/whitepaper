@@ -87,32 +87,43 @@
         console.log('Back to top button created');
     }
     
-    // Add whitepaper download to existing header
-    function addWhitepaperDownload() {
-        // Find the existing header navigation
+    // Update header menu with new structure
+    function updateHeaderMenu() {
         const nav = document.querySelector('nav');
-        if (nav) {
-            // Look for existing menu items
-            const menuContainer = nav.querySelector('ul, .flex, .space-x-8');
-            if (menuContainer) {
-                // Create whitepaper download link
-                const whitepaperLink = document.createElement('a');
-                whitepaperLink.href = './assets/0912_whitepaper_ja.pdf';
-                whitepaperLink.download = 'MOTHER_VEGETABLES_Whitepaper_JP.pdf';
-                whitepaperLink.innerHTML = `
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; display: inline-block; vertical-align: middle;">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14,2 14,8 20,8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10,9 9,9 8,9"/>
+        if (!nav) return;
+        
+        // Clear existing menu
+        const menuContainer = nav.querySelector('ul, .flex, .space-x-8');
+        if (!menuContainer) return;
+        
+        // Clear current menu
+        menuContainer.innerHTML = '';
+        
+        // Define new menu items
+        const menuItems = [
+            { text: 'メンバー', href: '#members' },
+            { text: 'プロジェクト詳細', href: '#project' },
+            { text: 'ショップ', href: '#shop', disabled: true },
+            { text: 'ホワイトペーパー', href: './assets/0912_whitepaper_ja.pdf', download: true }
+        ];
+        
+        // Create menu items
+        menuItems.forEach(item => {
+            const link = document.createElement('a');
+            
+            if (item.download) {
+                link.href = item.href;
+                link.download = '0912_whitepaper_ja.pdf';
+                link.innerHTML = `
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; display: inline-block; vertical-align: middle;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
                     </svg>
-                    ホワイトペーパー
+                    ${item.text}
                 `;
-                whitepaperLink.style.cssText = `
-                    background: linear-gradient(135deg, #10b981, #059669) !important;
+                link.style.cssText = `
                     padding: 8px 16px !important;
-                    border-radius: 6px !important;
                     color: white !important;
                     text-decoration: none !important;
                     transition: all 0.3s ease !important;
@@ -120,32 +131,81 @@
                     align-items: center !important;
                     font-size: 14px !important;
                     font-weight: 500 !important;
+                    cursor: pointer !important;
                 `;
                 
-                whitepaperLink.addEventListener('mouseenter', function() {
-                    this.style.background = 'linear-gradient(135deg, #059669, #047857)';
-                    this.style.transform = 'translateY(-2px)';
-                    this.style.boxShadow = '0 4px 12px rgba(16, 185, 129, 0.3)';
+                link.addEventListener('mouseenter', function() {
+                    this.style.color = '#10b981';
                 });
                 
-                whitepaperLink.addEventListener('mouseleave', function() {
-                    this.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = 'none';
+                link.addEventListener('mouseleave', function() {
+                    this.style.color = 'white';
+                });
+            } else if (item.disabled) {
+                link.href = '#';
+                link.textContent = item.text;
+                link.style.cssText = `
+                    padding: 8px 16px !important;
+                    color: #6b7280 !important;
+                    text-decoration: none !important;
+                    cursor: not-allowed !important;
+                    font-size: 14px !important;
+                    font-weight: 500 !important;
+                `;
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                });
+            } else {
+                link.href = item.href;
+                link.textContent = item.text;
+                link.style.cssText = `
+                    padding: 8px 16px !important;
+                    color: white !important;
+                    text-decoration: none !important;
+                    transition: all 0.3s ease !important;
+                    font-size: 14px !important;
+                    font-weight: 500 !important;
+                    cursor: pointer !important;
+                `;
+                
+                link.addEventListener('mouseenter', function() {
+                    this.style.color = '#10b981';
                 });
                 
-                // Add to menu
-                if (menuContainer.tagName === 'UL') {
-                    const li = document.createElement('li');
-                    li.appendChild(whitepaperLink);
-                    menuContainer.appendChild(li);
-                } else {
-                    menuContainer.appendChild(whitepaperLink);
-                }
+                link.addEventListener('mouseleave', function() {
+                    this.style.color = 'white';
+                });
                 
-                console.log('Whitepaper download link added to header');
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = item.href.substring(1);
+                    const targetElement = document.getElementById(targetId) || 
+                                        document.querySelector(`.${targetId}`) ||
+                                        document.querySelector(`[data-section="${targetId}"]`);
+                    
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             }
-        }
+            
+            if (menuContainer.tagName === 'UL') {
+                const li = document.createElement('li');
+                li.appendChild(link);
+                menuContainer.appendChild(li);
+            } else {
+                menuContainer.appendChild(link);
+            }
+        });
+        
+        console.log('Header menu updated with new structure');
     }
     
     // Make header sticky
@@ -164,22 +224,6 @@
         }
     }
     
-    // Rename navigation menu items
-    function renameNavItems() {
-        const nav = document.querySelector('nav');
-        if (!nav) return;
-
-        // Collect all anchor elements inside the nav (including inside <ul> or flex containers)
-        const anchors = nav.querySelectorAll('a');
-        const labels = ['メンバー', 'プロジェクト詳細', 'ショップ', 'ホワイトペーパー'];
-
-        anchors.forEach((anchor, idx) => {
-            if (idx < labels.length) {
-                anchor.textContent = labels[idx];
-            }
-        });
-    }
-
     // Add smooth scrolling
     function addSmoothScrolling() {
         // Add smooth scroll behavior to html
@@ -211,9 +255,8 @@
             // Wait a bit more for the app to fully render
             setTimeout(() => {
                 createBackToTopButton();
-                addWhitepaperDownload();
+                updateHeaderMenu();
                 makeHeaderSticky();
-                renameNavItems();
                 addSmoothScrolling();
                 
                 console.log('All enhanced features initialized successfully');
