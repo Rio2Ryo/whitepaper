@@ -2,7 +2,7 @@
 
 /* Add 100px spacing between consecutive <section> elements */
 section + section {
-    margin-top: 120px; /* Default (desktop) spacing */
+    margin-top: 90px; /* Default (desktop) spacing */
 }
 div#root {
     z-index: 9999999 !important;
