@@ -7,6 +7,9 @@ section + section {
 h2 {
     font-size: 1.4rem!important;
 }
+h3 {
+    font-size: 1.3rem!important;
+}
 
 /* Mobile: reduce spacing between sections */
 @media (max-width: 768px) {
