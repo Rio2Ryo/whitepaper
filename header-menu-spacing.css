@@ -41,7 +41,7 @@ nav .hidden.md\:flex.items-center.gap-6 {
 /* Mobile: reduce spacing between sections */
 @media (max-width: 768px) {
     section + section {
-        margin-top: 120px;
+        margin-top: 90px;
     }
     h1 {
         margin-top: 110px!important;
