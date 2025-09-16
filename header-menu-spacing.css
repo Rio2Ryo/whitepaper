@@ -2,7 +2,14 @@
 
 /* Add 100px spacing between consecutive <section> elements */
 section + section {
-    margin-top: 100px;
+    margin-top: 100px; /* Default (desktop) spacing */
+}
+
+/* Mobile: reduce spacing between sections */
+@media (max-width: 768px) {
+    section + section {
+        margin-top: 80px;
+    }
 }
 
 h1 {
