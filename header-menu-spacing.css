@@ -22,7 +22,12 @@ h2 {
 h3 {
     font-size: 1.2rem!important;
 }
-}
+nav .hidden.md\:flex.items-center.gap-6 {
+        display: contents;
+        font-size: 0.6rem !important;        
+    }
+  }
+
 
 /* Mobile: reduce spacing between sections */
 @media (max-width: 768px) {
