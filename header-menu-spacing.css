@@ -21,15 +21,7 @@ h1 {
 .bg-gray-800\/50.p-8.rounded-2xl.border.border-gray-700\/50{
     margin-top: 100px!important;
 }
-h3.text-2xl.font-bold.mb-8.text-center.text-green-400 {
-    margin-top: 100px;
-}
-h3.text-2xl.ont-bold.mb-8.text-center.text-purple-400 {
-    margin-top: 100px;
-}
-h3.text-2xl.font-bold.mb-6.text-center.text-purple-400 {
-    margin-top: 100px;
-}
+
 @media (max-width: 768px) {
 h2 {
     font-size: 1.4rem!important;
