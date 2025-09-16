@@ -4,6 +4,10 @@
 section + section {
     margin-top: 120px; /* Default (desktop) spacing */
 }
+div#root {
+    z-index: 9999999 !important;
+    position: relative;
+}
 @media (max-width: 768px) {
 h2 {
     font-size: 1.4rem!important;
