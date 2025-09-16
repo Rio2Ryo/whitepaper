@@ -87,114 +87,65 @@
         console.log('Back to top button created');
     }
     
-    // Update header menu with new structure
-    function updateHeaderMenu() {
-        // Try multiple selectors to find the navigation menu
-        let menuLinks = document.querySelectorAll('header nav a, header a, nav a');
-        
-        if (menuLinks.length === 0) {
-            console.log('No menu links found, retrying...');
-            return;
-        }
-        
-        console.log(`Found ${menuLinks.length} menu links`);
-        
-        // Define new menu items
-        const menuItems = [
-            { text: 'メンバー', href: '#members' },
-            { text: 'プロジェクト詳細', href: '#project' },
-            { text: 'ショップ', href: '#shop', disabled: true },
-            { text: 'ホワイトペーパー', href: './assets/0912_whitepaper_ja.pdf', download: true }
-        ];
-        
-        // Update existing links instead of replacing them
-        menuLinks.forEach((link, index) => {
-            if (index < menuItems.length) {
-                const item = menuItems[index];
+    // Add whitepaper download to existing header
+    function addWhitepaperDownload() {
+        // Find the existing header navigation
+        const nav = document.querySelector('nav');
+        if (nav) {
+            // Look for existing menu items
+            const menuContainer = nav.querySelector('ul, .flex, .space-x-8');
+            if (menuContainer) {
+                // Create whitepaper download link
+                const whitepaperLink = document.createElement('a');
+                whitepaperLink.href = './assets/0912_whitepaper_ja.pdf';
+                whitepaperLink.download = 'MOTHER_VEGETABLES_Whitepaper_JP.pdf';
+                whitepaperLink.innerHTML = `
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; display: inline-block; vertical-align: middle;">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10,9 9,9 8,9"/>
+                    </svg>
+                    ホワイトペーパー
+                `;
+                whitepaperLink.style.cssText = `
+                    background: linear-gradient(135deg, #10b981, #059669) !important;
+                    padding: 8px 16px !important;
+                    border-radius: 6px !important;
+                    color: white !important;
+                    text-decoration: none !important;
+                    transition: all 0.3s ease !important;
+                    display: inline-flex !important;
+                    align-items: center !important;
+                    font-size: 14px !important;
+                    font-weight: 500 !important;
+                `;
                 
-                // Remove any existing event listeners by cloning the node
-                const newLink = link.cloneNode(false);
+                whitepaperLink.addEventListener('mouseenter', function() {
+                    this.style.background = 'linear-gradient(135deg, #059669, #047857)';
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 12px rgba(16, 185, 129, 0.3)';
+                });
                 
-                if (item.download) {
-                    newLink.href = item.href;
-                    newLink.download = '0912_whitepaper_ja.pdf';
-                    newLink.innerHTML = `
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; display: inline-block; vertical-align: middle;">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                            <polyline points="7 10 12 15 17 10"/>
-                            <line x1="12" y1="15" x2="12" y2="3"/>
-                        </svg>
-                        ${item.text}
-                    `;
-                    
-                    newLink.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const downloadLink = document.createElement('a');
-                        downloadLink.href = item.href;
-                        downloadLink.download = '0912_whitepaper_ja.pdf';
-                        document.body.appendChild(downloadLink);
-                        downloadLink.click();
-                        document.body.removeChild(downloadLink);
-                    });
-                } else if (item.disabled) {
-                    newLink.href = '#';
-                    newLink.textContent = item.text;
-                    newLink.style.opacity = '0.5';
-                    newLink.style.cursor = 'not-allowed';
-                    
-                    newLink.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                    });
+                whitepaperLink.addEventListener('mouseleave', function() {
+                    this.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+                
+                // Add to menu
+                if (menuContainer.tagName === 'UL') {
+                    const li = document.createElement('li');
+                    li.appendChild(whitepaperLink);
+                    menuContainer.appendChild(li);
                 } else {
-                    newLink.href = item.href;
-                    newLink.textContent = item.text;
-                    
-                    newLink.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const targetId = item.href.substring(1);
-                        
-                        // Try multiple ways to find the target section
-                        let targetElement = document.getElementById(targetId) || 
-                                          document.querySelector(`.${targetId}`) ||
-                                          document.querySelector(`[data-section="${targetId}"]`) ||
-                                          document.querySelector(`section.${targetId}`) ||
-                                          document.querySelector(`div.${targetId}`);
-                        
-                        // If specific sections not found, try to find by text content
-                        if (!targetElement) {
-                            if (targetId === 'members') {
-                                targetElement = Array.from(document.querySelectorAll('h2, h3')).find(el => 
-                                    el.textContent.includes('メンバー') || el.textContent.includes('Member') || el.textContent.includes('チーム')
-                                );
-                            } else if (targetId === 'project') {
-                                targetElement = Array.from(document.querySelectorAll('h2, h3')).find(el => 
-                                    el.textContent.includes('プロジェクト') || el.textContent.includes('Project')
-                                );
-                            }
-                        }
-                        
-                        if (targetElement) {
-                            const headerOffset = 80;
-                            const elementPosition = targetElement.getBoundingClientRect().top;
-                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                            
-                            window.scrollTo({
-                                top: offsetPosition,
-                                behavior: 'smooth'
-                            });
-                        } else {
-                            console.log(`Target element not found for: ${targetId}`);
-                        }
-                    });
+                    menuContainer.appendChild(whitepaperLink);
                 }
                 
-                // Replace the old link with the new one
-                link.parentNode.replaceChild(newLink, link);
+                console.log('Whitepaper download link added to header');
             }
-        });
-        
-        console.log('Header menu updated with new structure');
+        }
     }
     
     // Make header sticky
@@ -244,29 +195,9 @@
             // Wait a bit more for the app to fully render
             setTimeout(() => {
                 createBackToTopButton();
+                addWhitepaperDownload();
                 makeHeaderSticky();
                 addSmoothScrolling();
-                
-                // Try to update menu multiple times with delays
-                let attempts = 0;
-                const maxAttempts = 10;
-                
-                const tryUpdateMenu = () => {
-                    attempts++;
-                    console.log(`Attempting to update menu (attempt ${attempts}/${maxAttempts})`);
-                    
-                    const menuLinks = document.querySelectorAll('header nav a, header a, nav a');
-                    if (menuLinks.length > 0) {
-                        updateHeaderMenu();
-                        console.log('Menu update completed');
-                    } else if (attempts < maxAttempts) {
-                        setTimeout(tryUpdateMenu, 500);
-                    } else {
-                        console.log('Failed to find menu after maximum attempts');
-                    }
-                };
-                
-                tryUpdateMenu();
                 
                 console.log('All enhanced features initialized successfully');
             }, 1000);
