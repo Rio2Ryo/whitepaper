@@ -1,4 +1,10 @@
 /* Header Menu Spacing Improvements */
+
+/* Add 100px spacing between consecutive <section> elements */
+section + section {
+    margin-top: 100px;
+}
+
 h1 {
     margin-top: 90px!important;
 }
