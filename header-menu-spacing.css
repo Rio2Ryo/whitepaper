@@ -5,7 +5,7 @@ section + section {
     margin-top: 120px; /* Default (desktop) spacing */
 }
 div#root {
-    z-index: 9999999 !important;
+    z-index: 9999998 !important;
     position: relative;
 }
 h1 {
